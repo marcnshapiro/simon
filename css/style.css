@@ -1,0 +1,86 @@
+body{
+  background:#777;
+  padding-top: 5%;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#playArea {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  margin: 0 auto;
+}
+
+#board{
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 0px;
+  left: 0px;  
+  border-radius: 50%;  
+}
+
+#board div{
+  border:10px solid #000000;
+  float:left;
+  width:200px;
+  height: 200px;
+  box-sizing: border-box;   
+  outline: none;
+}
+
+#btnGreen {
+  border-top-left-radius: 100%;
+  background:  #2ECC40;
+}
+
+#btnRed {
+  border-top-right-radius: 100%;
+  background:  #CC5050;
+}
+
+#btnYellow {
+  border-bottom-left-radius: 100%;
+  background:  #CCCC40;
+}
+
+#btnBlue {
+  border-bottom-right-radius: 100%;
+  background:  #5070CC;
+}
+
+.btn-simon {
+  border-top:1px solid #5f5f5f;
+  border-bottom: 1px solid #000000;
+  border-left: 1px solid #1f1f1f;
+  border-right: 1px solid #1f1f1f;
+  background-color: #dfdfdf;
+  color: #000000;
+  margin: 3px;
+  padding: 1px;
+}
+
+.btn-custom {
+  border-top:1px solid #5f5f5f;
+  border-bottom: 1px solid #000000;
+  border-left: 1px solid #1f1f1f;
+  border-right: 1px solid #1f1f1f;
+  background-color: #dfdfdf;
+  color: #000000;
+  margin: 3px;
+  padding: 1px;
+}
+
+.btn-custom:hover {
+  background: #3f6fff !important;
+  border: solid 1px #2A4E77;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-custom:active {
+  background: #0000ff !important;
+  border: solid 1px #203E5F;
+}
+

@@ -6,48 +6,90 @@ body{
 }
 
 #playArea {
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   position: relative;
   margin: 0 auto;
 }
 
-#board{
-  width: 400px;
-  height: 400px;
+#board {
+  width: 500px;
+  height: 500px;
   position: absolute;
   top: 0px;
   left: 0px;  
   border-radius: 50%;  
 }
 
-#board div{
-  border:10px solid #000000;
-  float:left;
-  width:200px;
+#panel {
+  width: 200px;
   height: 200px;
+  position: absolute;
+  top: 150px;
+  left: 150px;  
+  border-radius: 50%;
+  background-color: #C0C0C0;
+  border: 5px solid #000000;
+}
+
+#simon {
+  position: absolute;
+  width: 174px;
+  height: 53px;
+  top: 40px;
+  left: 10px;
+}
+
+#board div {
+  float:left;
+  width:250px;
+  height: 250px;
   box-sizing: border-box;   
   outline: none;
 }
 
 #btnGreen {
   border-top-left-radius: 100%;
-  background:  #2ECC40;
+  background-color:  #2ECC40;
+  border-top-width: 10;
+  border-right-width: 5;
+  border-bottom-width: 5;
+  border-left-width: 10;
+  border-style: solid;
+  border-color: #000000;
 }
 
 #btnRed {
   border-top-right-radius: 100%;
-  background:  #CC5050;
+  background-color:  #CC5050;
+  border-top-width: 10;
+  border-right-width: 10;
+  border-bottom-width: 5;
+  border-left-width: 5;
+  border-style: solid;
+  border-color: #000000;
 }
 
 #btnYellow {
   border-bottom-left-radius: 100%;
-  background:  #CCCC40;
+  background-color:  #CCCC40;
+  border-top-width: 5;
+  border-right-width: 5;
+  border-bottom-width: 10;
+  border-left-width: 10;
+  border-style: solid;
+  border-color: #000000;
 }
 
 #btnBlue {
   border-bottom-right-radius: 100%;
-  background:  #5070CC;
+  background-color:  #5070CC;
+  border-top-width: 5;
+  border-right-width: 10;
+  border-bottom-width: 10;
+  border-left-width: 5;
+  border-style: solid;
+  border-color: #000000;
 }
 
 .btn-simon {
@@ -73,14 +115,14 @@ body{
 }
 
 .btn-custom:hover {
-  background: #3f6fff !important;
+  background-color: #3f6fff !important;
   border: solid 1px #2A4E77;
   text-decoration: none;
   color: white;
 }
 
 .btn-custom:active {
-  background: #0000ff !important;
+  background-color: #0000ff !important;
   border: solid 1px #203E5F;
 }
 

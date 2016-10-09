@@ -7,7 +7,8 @@ var round = 0;
 var dur = 420;
 
 // create web audio api context, Oscillator, and Gain
-var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+var audioContext = window.AudioContext || window.webkitAudioContext || false;
+var audioCtx = new audioContext();
 var oscillator;
 var gainNode;
 
@@ -97,6 +98,8 @@ function releaseBlue() {
 function zonk() {
   playTone(tones[4], 4);
   oscillator.stop(1.5);
+  count = 0;
+  playSequence(round, dur);
 }
 
 // Play a portion of the sequence
@@ -132,89 +135,112 @@ function playSequence(num, dur) {
 $(document).ready( function() {
   "use strict";
 
-  var done = false;
+  if (!audioContext) {
+    alert("The Web Audio API is not available on your device/browser.");
+  } else {
+    var done = false;
 
-  $("#btnGreen").on("mousedown", function() {
-    if (!locked) {
-      if (sequence[count] === 0) {
-        playGreen();
-      } else {
-        zonk();
+    $("#btnGreen").on("mousedown", function() {
+      if (!locked) {
+        if (sequence[count] === 0) {
+          playGreen();
+        } else {
+          zonk();
+        }
       }
-    }
-  });
+    });
 
-  $("#btnGreen").on("mouseup", function() {
-    if (!locked) {
-      if (sequence[count] === 0) {
-        releaseGreen();
+    $("#btnGreen").on("mouseup", function() {
+      if (!locked) {
+        if (sequence[count] === 0) {
+          releaseGreen();
+        }
+        count++;
+        if (count === round) {
+          round++;
+          count = 0;
+          playSequence(round, dur);
+        }
       }
-      count++;
-    }
-  });
+    });
 
-  $("#btnRed").on("mousedown", function() {
-    if (!locked) {
-      if (sequence[count] === 1) {
-        playRed();
-      } else {
-        zonk();
+    $("#btnRed").on("mousedown", function() {
+      if (!locked) {
+        if (sequence[count] === 1) {
+          playRed();
+        } else {
+          zonk();
+        }
       }
-    }
-  });
+    });
 
-  $("#btnRed").on("mouseup", function() {
-    if (!locked) {
-      if (sequence[count] === 1) {
-        releaseRed();
+    $("#btnRed").on("mouseup", function() {
+      if (!locked) {
+        if (sequence[count] === 1) {
+          releaseRed();
+        }
+        count++;
+        if (count === round) {
+          round++;
+          count = 0;
+          playSequence(round, dur);
+        }
       }
-      count++;
-    }
-  });
+    });
 
-  $("#btnYellow").on("mousedown", function() {
-    if (!locked) {
-      if (sequence[count] === 2) {
-        playYellow();
-      } else {
-        zonk();
+    $("#btnYellow").on("mousedown", function() {
+      if (!locked) {
+        if (sequence[count] === 2) {
+          playYellow();
+        } else {
+          zonk();
+        }
       }
-    }
-  });
+    });
 
-  $("#btnYellow").on("mouseup", function() {
-    if (!locked) {
-      if (sequence[count] === 2) {
-        releaseYellow;
+    $("#btnYellow").on("mouseup", function() {
+      if (!locked) {
+        if (sequence[count] === 2) {
+          releaseYellow();
+        }
+        count++;
+        if (count === round) {
+          round++;
+          count = 0;
+          playSequence(round, dur);
+        }
       }
-      count++;
-    }
-  });
+    });
 
-  $("#btnBlue").on("mousedown", function() {
-    if (!locked) {
-      if (sequence[count] === 3) {
-        playBlue();
-      } else {
-        zonk();
+    $("#btnBlue").on("mousedown", function() {
+      if (!locked) {
+        if (sequence[count] === 3) {
+          playBlue();
+        } else {
+          zonk();
+        }
       }
-    }
- });
+   });
 
-  $("#btnBlue").on("mouseup", function() {
-    if (!locked) {
-      if (sequence[count] === 3) {
-        releaseBlue();
+    $("#btnBlue").on("mouseup", function() {
+      if (!locked) {
+        if (sequence[count] === 3) {
+          releaseBlue();
+        }
+        count++;
+        if (count === round) {
+          round++;
+          count = 0;
+          playSequence(round, dur);
+        }
       }
-      count++;
-    }
-  });
+    });
 
-  round += 1;
-  count = 0;
-  playSequence(round, dur);
+    round += 1;
+    count = 0;
+    playSequence(round, dur);
 
-  done = false;
-
+    done = false;
+  }
 });
 

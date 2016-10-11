@@ -17,7 +17,7 @@ var E4 = new Audio('audio/E4.mp3');
 var G4 = new Audio('audio/G4.mp3');
 var Zonk = new Audio('audio/Zonk.mp3');
 
-var maxTones = 10;
+var maxTones = 20;
 
 // Returns a random integer between min (included) and max (included)
 // Using Math.round() will give you a non-uniform distribution!

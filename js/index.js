@@ -19,6 +19,9 @@ var Zonk = new Audio('audio/Zonk.mp3');
 
 var maxTones = 20;
 
+var hasTouchCapabilities = 'ontouchstart' in window || navigator.maxTouchPoints || navigator.msMaxTouchPoints;
+var isTouchDevice = hasTouchCapabilities ? 'maybe':'no';
+
 // Returns a random integer between min (included) and max (included)
 // Using Math.round() will give you a non-uniform distribution!
 function getRandomIntInclusive(min, max) {
@@ -134,9 +137,9 @@ function playSequence(num) {
   lock();
 
   $("#round").html(num);
-  if (num === 14) {
+  if (num >= 14) {
     dur = 220;
-  } else if (num === 6) {
+  } else if (num >= 6) {
     dur = 320;
   } else {
     dur = 420;
@@ -206,6 +209,12 @@ function playVictory() {
 $(document).ready( function() {
   "use strict";
 
+  $(window).one('touchstart mousemove click',function(e){
+    if ( isTouchDevice === 'maybe' && e.type === 'touchstart' ) {
+      isTouchDevice = "yes";
+    }
+  });
+
   $( "#volume" ).on("change", function() {
     volume = document.getElementById("volume").value/100;
   });
@@ -233,12 +242,14 @@ $(document).ready( function() {
     playSequence(round, dur);
   });
 
-  $("#btnGreen").on("mousedown touchstart", function() {
-    if (!locked) {
-      if (sequence[count] === 0) {
-        playGreen();
-      } else {
-        playZonk();
+  $("#btnGreen").on("mousedown touchstart", function(e) {
+    if (e.type === "mousedown" && !(isTouchDevice === "yes") || e.type === "touchstart" && (isTouchDevice === "yes")) {
+      if (!locked) {
+        if (sequence[count] === 0) {
+          playGreen();
+        } else {
+          playZonk();
+        }
       }
     }
   });
@@ -257,12 +268,14 @@ $(document).ready( function() {
     }
   });
 
-  $("#btnRed").on("mousedown touchstart", function() {
-    if (!locked) {
-      if (sequence[count] === 1) {
-        playRed();
-      } else {
-        playZonk();
+  $("#btnRed").on("mousedown touchstart", function(e) {
+    if (e.type === "mousedown" && !(isTouchDevice === "yes") || e.type === "touchstart" && (isTouchDevice === "yes")) {
+      if (!locked) {
+        if (sequence[count] === 1) {
+          playRed();
+        } else {
+          playZonk();
+        }
       }
     }
   });
@@ -281,12 +294,14 @@ $(document).ready( function() {
     }
   });
 
-  $("#btnYellow").on("mousedown touchstart", function() {
-    if (!locked) {
-      if (sequence[count] === 2) {
-        playYellow();
-      } else {
-        playZonk();
+  $("#btnYellow").on("mousedown touchstart", function(e) {
+    if (e.type === "mousedown" && !(isTouchDevice === "yes") || e.type === "touchstart" && (isTouchDevice === "yes")) {
+      if (!locked) {
+        if (sequence[count] === 2) {
+          playYellow();
+        } else {
+          playZonk();
+        }
       }
     }
   });
@@ -305,12 +320,14 @@ $(document).ready( function() {
     }
   });
 
-  $("#btnBlue").on("mousedown touchstart", function() {
-    if (!locked) {
-      if (sequence[count] === 3) {
-        playBlue();
-      } else {
-        playZonk();
+  $("#btnBlue").on("mousedown touchstart", function(e) {
+    if (e.type === "mousedown" && !(isTouchDevice === "yes") || e.type === "touchstart" && (isTouchDevice === "yes")) {
+      if (!locked) {
+        if (sequence[count] === 3) {
+          playBlue();
+        } else {
+          playZonk();
+        }
       }
     }
  });

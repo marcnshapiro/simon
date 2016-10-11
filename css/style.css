@@ -33,12 +33,111 @@ body{
 }
 
 #simon {
-  position: absolute;
   width: 174px;
   height: 53px;
+  position: absolute;
   top: 40px;
   left: 10px;
 }
+
+#round {
+  width: 40px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  position: absolute;
+  top: 110px;
+  left: 25px;
+  color: #C00000;
+  background-color: #4F1F1F;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.label{
+  width: 40;
+  height: 10;
+  font-size: 8px;
+  line-height: 10px;
+  color: #000000;
+}
+
+#lblRound {
+  position: absolute;
+  top: 140;
+  left: 25;
+}
+
+#lblStart {
+  position: absolute;
+  top: 140;
+  left: 84;
+}
+
+#lblStrict {
+  position: absolute;
+  top: 140;
+  left: 133;
+}
+
+#lblVolume {
+  position: absolute;
+  top: 165;
+  left: 75;
+}
+
+#start {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: 110px;
+  left: 90px;  
+  border-radius: 50%;
+  border: 3px solid #333333;
+  background-color: #FF0000; 
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, .5);
+}
+
+#start:active {
+  box-shadow: none;
+}
+
+#strict {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: 110px;
+  left: 140px;  
+  border-radius: 50%;
+  border: 3px solid #333333;
+  background-color: #FFFF00; 
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, .5);
+} 
+
+#strict:active {
+  box-shadow: none;
+}
+
+#strictLED {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 95px;
+  left: 148px;  
+  border-radius: 50%;
+  border: 1px solid #000000;
+  background-color: #4F1F1F; 
+} 
+
+#volume {
+  width: 100px;
+  height: 5px;
+  position: absolute;
+  top: 160px;
+  left: 45px;  
+  border: 1px solid #000000;
+  background-color: #0000FF;
+} 
 
 #board div {
   float:left;
@@ -50,7 +149,7 @@ body{
 
 #btnGreen {
   border-top-left-radius: 100%;
-  background-color:  #2ECC40;
+  background-color:  #1FCC1F;
   border-top-width: 10;
   border-right-width: 5;
   border-bottom-width: 5;
@@ -61,7 +160,7 @@ body{
 
 #btnRed {
   border-top-right-radius: 100%;
-  background-color:  #CC5050;
+  background-color:  #CC1F1F;
   border-top-width: 10;
   border-right-width: 10;
   border-bottom-width: 5;
@@ -72,7 +171,7 @@ body{
 
 #btnYellow {
   border-bottom-left-radius: 100%;
-  background-color:  #CCCC40;
+  background-color:  #CCCC1F;
   border-top-width: 5;
   border-right-width: 5;
   border-bottom-width: 10;
@@ -83,7 +182,7 @@ body{
 
 #btnBlue {
   border-bottom-right-radius: 100%;
-  background-color:  #5070CC;
+  background-color:  #1F1FCC;
   border-top-width: 5;
   border-right-width: 10;
   border-bottom-width: 10;

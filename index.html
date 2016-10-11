@@ -10,8 +10,10 @@
     <title>Simon</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel=https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.2.1/rangeslider.css>
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>   
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.2.1/rangeslider.js></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
     <script src='js/index.js'></script>
   </head>
@@ -28,6 +30,15 @@
           </div>
           <div id="panel">
             <img id="simon" src="simon.png">
+            <div id=round>0</div>
+            <div id="lblRound" class="label">Count</div>
+            <div id=start></div>
+            <div id="lblStart" class="label">Start</div>
+            <div id=strict></div>
+            <div id="lblStrict" class="label">Strict</div>
+            <div id=strictLED></div>
+            <input type="range" id="volume" value="90">
+            <div id="lblVolume" class="label">Volume</div>
           </div>
         </div>
       </div>

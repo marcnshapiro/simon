@@ -19,6 +19,16 @@ var Zonk = new Audio('audio/Zonk.mp3');
 
 var maxTones = 20;
 
+// Fix bug where each sound does not play on first call (on mobile), but is fine on subsequent calls.
+G3.play();
+G3.pause();
+C4.play();
+C4.pause();
+E4.play();
+E4.pause();
+G4.play();
+G4.pause();
+
 /*
 This is not used any more since I found a better way to deal with finickiness in touchstart/touchend
 but I am keeping it in comments for future reference until I set up a good tip sheet for myself
@@ -43,59 +53,36 @@ function unlock() {
   count = 0;
 }
 
-function playTone(tone) {
-  switch (tone) {
-    case "G4":
-      G4.currentTime = 0;
-      G4.loop = true;
-      G4.volume = volume;
-      G4.play();
-      break;
-    case "E4":
-      E4.currentTime = 0;
-      E4.loop = true;
-      E4.volume = volume;
-      E4.play();
-      break;
-    case "C4":
-      C4.currentTime = 0;
-      C4.loop = true;
-      C4.volume = volume;
-      C4.play();
-      break;
-    case "G3":
-      G3.currentTime = 0;
-      G3.loop = true;
-      G3.volume = volume;
-      G3.play();
-      break;
-    case "Zonk":
-      Zonk.currentTime = 0;
-      Zonk.loop = false;
-      Zonk.volume = volume;
-      Zonk.play();
-      break;
-  }
-}
-
 function playGreen () {
   $("#btnGreen").css("background", "#4FFF4F");
-  playTone(tones[0]);
+  G4.currentTime = 0;
+  G4.loop = true;
+  G4.volume = volume;
+  G4.play();
 }
 
 function playRed () {
   $("#btnRed").css("background", "#FF4F4F");
-  playTone(tones[1]);
+  E4.currentTime = 0;
+  E4.loop = true;
+  E4.volume = volume;
+  E4.play();
 }
 
 function playYellow () {
   $("#btnYellow").css("background", "#FFFF4F");
-  playTone(tones[2]);
+  C4.currentTime = 0;
+  C4.loop = true;
+  C4.volume = volume;
+  C4.play();
 }
 
 function playBlue () {
   $("#btnBlue").css("background", "#1F8FFF");
-  playTone(tones[3]);
+  G3.currentTime = 0;
+  G3.loop = true;
+  G3.volume = volume;
+  G3.play();
 }
 
 function releaseGreen() {
@@ -119,7 +106,11 @@ function releaseBlue() {
 }
 
 function playZonk() {
-  playTone(tones[4], 4);
+  Zonk.currentTime = 0;
+  Zonk.loop = false;
+  Zonk.volume = volume;
+  Zonk.play();
+
   count = 0;
 
   if (strict) {

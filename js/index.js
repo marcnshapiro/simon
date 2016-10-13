@@ -19,8 +19,12 @@ var Zonk = new Audio('audio/Zonk.mp3');
 
 var maxTones = 20;
 
+/*
+This is not used any more since I found a better way to deal with finickiness in touchstart/touchend
+but I am keeping it in comments for future reference until I set up a good tip sheet for myself
 var hasTouchCapabilities = 'ontouchstart' in window || navigator.maxTouchPoints || navigator.msMaxTouchPoints;
 var isTouchDevice = hasTouchCapabilities ? 'maybe':'no';
+*/
 
 // Returns a random integer between min (included) and max (included)
 // Using Math.round() will give you a non-uniform distribution!
@@ -208,12 +212,15 @@ function playVictory() {
 
 $(document).ready( function() {
   "use strict";
-
+  /*
+  This is not used any more since I found a better way to deal with finickiness in touchstart/touchend
+  but I am keeping it in comments for future reference until I set up a good tip sheet for myself
   $(window).one('touchstart mousemove click',function(e){
     if ( isTouchDevice === 'maybe' && e.type === 'touchstart' ) {
       isTouchDevice = "yes";
     }
   });
+ */
 
   $( "#volume" ).on("change", function() {
     volume = document.getElementById("volume").value/100;
@@ -242,8 +249,9 @@ $(document).ready( function() {
     playSequence(round, dur);
   });
 
+  
   $("#btnGreen").on("mousedown touchstart", function(e) {
-    if (e.type === "mousedown" && !(isTouchDevice === "yes") || e.type === "touchstart" && (isTouchDevice === "yes")) {
+      e.preventDefault();
       if (!locked) {
         if (sequence[count] === 0) {
           playGreen();
@@ -251,10 +259,9 @@ $(document).ready( function() {
           playZonk();
         }
       }
-    }
   });
 
-  $("#btnGreen").on("mouseup", function() {
+  $("#btnGreen").on("mouseup touchend", function() {
     if (!locked) {
       if (sequence[count] === 0) {
         releaseGreen();
@@ -269,18 +276,17 @@ $(document).ready( function() {
   });
 
   $("#btnRed").on("mousedown touchstart", function(e) {
-    if (e.type === "mousedown" && !(isTouchDevice === "yes") || e.type === "touchstart" && (isTouchDevice === "yes")) {
-      if (!locked) {
-        if (sequence[count] === 1) {
-          playRed();
-        } else {
-          playZonk();
-        }
+    e.preventDefault();
+    if (!locked) {
+      if (sequence[count] === 1) {
+        playRed();
+      } else {
+        playZonk();
       }
     }
   });
 
-  $("#btnRed").on("mouseup", function() {
+  $("#btnRed").on("mouseup touchend", function() {
     if (!locked) {
       if (sequence[count] === 1) {
         releaseRed();
@@ -295,18 +301,17 @@ $(document).ready( function() {
   });
 
   $("#btnYellow").on("mousedown touchstart", function(e) {
-    if (e.type === "mousedown" && !(isTouchDevice === "yes") || e.type === "touchstart" && (isTouchDevice === "yes")) {
-      if (!locked) {
-        if (sequence[count] === 2) {
-          playYellow();
-        } else {
-          playZonk();
-        }
+    e.preventDefault();
+    if (!locked) {
+      if (sequence[count] === 2) {
+        playYellow();
+      } else {
+        playZonk();
       }
     }
   });
 
-  $("#btnYellow").on("mouseup", function() {
+  $("#btnYellow").on("mouseup touchend", function() {
     if (!locked) {
       if (sequence[count] === 2) {
         releaseYellow();
@@ -321,18 +326,17 @@ $(document).ready( function() {
   });
 
   $("#btnBlue").on("mousedown touchstart", function(e) {
-    if (e.type === "mousedown" && !(isTouchDevice === "yes") || e.type === "touchstart" && (isTouchDevice === "yes")) {
-      if (!locked) {
-        if (sequence[count] === 3) {
-          playBlue();
-        } else {
-          playZonk();
-        }
+    e.preventDefault();
+    if (!locked) {
+      if (sequence[count] === 3) {
+        playBlue();
+      } else {
+        playZonk();
       }
     }
  });
 
-  $("#btnBlue").on("mouseup", function() {
+  $("#btnBlue").on("mouseup touchend", function() {
     if (!locked) {
       if (sequence[count] === 3) {
         releaseBlue();
@@ -346,4 +350,3 @@ $(document).ready( function() {
     }
   });
 });
-
